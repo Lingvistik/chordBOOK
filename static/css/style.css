@@ -1,3 +1,7 @@
+html {
+    font-family: Abel, sans-serif;
+  }
+
 body {
     text-align: center;
 }
@@ -14,6 +18,11 @@ body {
     padding-top: 5px;
 }
 
+.card-image {
+    width: 200px !important; 
+    height: 200px !important;
+}
+
 @media only screen and (max-width: 800px) {
     #diagram {
         width: 355px;
@@ -22,4 +31,4 @@ body {
     #chart-title {
         font-size: 35px;
     }
-}  
+} 
