@@ -2,9 +2,9 @@
 
 <h2 >Add Your Song!</h2>
 
-<div class="container">
+<div id="form_add" class="container">
     <div class="row">
-        <form class="col s12" action="{{url_for('insert_chords')}}" method="POST" enctype="multipart/form-data">
+        <form class="col s12" action="{{url_for('add_chords')}}" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="band_name" type="text" name="band_name" class="validate">
@@ -14,30 +14,25 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="song_name" type="text" name="song_name" class="validate">
-                    <label for="song">Song Name</label>
+                    <label for="song_name">Song Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="chords_text" class="materialize-textarea" name="chords_text"></textarea>
-                    <label for="chords">Chords</label>
+                    <textarea id="chords_text" class="materialize-textarea" name="chords_text" rows="10"></textarea>
+                    <label for="chords_text">Chords &nbsp <em>(Input the text with the lyrics and the chords the way you want it to be shown)</em></label>
                 </div>
             </div>
             <div class="row">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>Image</span>
-                        <input type="file" name="cover_image">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
+                <div class="input-field col s12">
+                    <input id="image" type="text" name="image" class="validate">
+                    <label for="image">URL for Cover Image &nbsp <em>(if you can't find a good one, leave this field empty...)</em></label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <div class="control">
-                        <button class="btn" type="submit">Upload</button>
+                        <button class="btn" type="submit">Save</button>
                     </div>
                 </div>
             </div>

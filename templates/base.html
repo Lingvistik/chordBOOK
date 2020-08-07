@@ -13,29 +13,31 @@
      <script src="{{url_for('static', filename='js/script.js')}}" type="text/JavaScript"></script>       
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
   <header>
-   <nav>
-    <div class="nav-wrapper">
-      <a href="{{url_for('get_chords')}}" class="brand-logo center">
-        <img id="logo" src="static/images/guitar.png" alt="" width="55" height="50">
-      </a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="/"><strong>chordBOOK</strong></a></li>
-        <li><a href="{{url_for('add_chords')}}">Add A Song</a></li>
-        <li><a href="{{url_for('chords_diagram')}}">Learn Chords</a></li>
-      </ul>
+    <div class="navbar-fixed">
+      <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+          <a href="{{url_for('songs')}}" class="brand-logo center">
+            <img id="logo" src="static/images/logo.png" alt="" width="35" height="50">
+          </a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/"><strong>chordBOOK</strong></a></li>
+            <li><a href="{{url_for('add_chords')}}">Add A Song</a></li>
+            <li><a href="{{url_for('chords_diagram')}}">Learn Chords</a></li>
+          </ul>
+        </div>
+        <ul id="mobile-demo" class="sidenav">
+          <li><a href="/">chordBOOK</a></li>
+          <li><a href="{{url_for('add_chords')}}">Add A Song</a></li>
+          <li><a href="{{url_for('chords_diagram')}}">Learn Chords</a></li>
+        </ul>
     </div>
-    <ul id="mobile-demo" class="sidenav">
-      <li><a href="/">chordBOOK</a></li>
-      <li><a href="{{url_for('add_chords')}}">Add A Song</a></li>
-      <li><a href="{{url_for('chords_diagram')}}">Learn Chords</a></li>
-    </ul>
-  </div>
-
-  </nav>
+    </nav>
+    </div>
 </header>
 
         {% block content %} {% endblock %}

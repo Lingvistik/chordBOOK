@@ -1,9 +1,25 @@
-html {
-    font-family: Abel, sans-serif;
-  }
-
 body {
     text-align: center;
+    background-image: url('/static/images/logo.png');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 800px; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+}
+
+h1,
+h2 {
+    font-family: 'Lobster', cursive;
+    color: rgb(104, 104, 104);
+}
+
+h3,
+h4 {
+    color: rgb(104, 104, 104);
+}
+
+.btn {
+    font-family: 'Roboto', sans-serif;
 }
 
 .title {
@@ -11,13 +27,59 @@ body {
 }
 
 .nav-wrapper {
-    background-color: cadetblue;
+    background-color: rgba(95, 158, 160, 0.932) !important;
 }
+
 
 #logo {
-    padding-top: 5px;
+    margin-top: 5px;
+    background-color: rgb(218, 216, 218);
+    border-radius: 50%;
 }
 
+.card
+.horizontal {
+    max-height: 400px !important;
+}
+
+#edit {
+    background-color: rgb(49, 23, 145);
+}
+
+#show_edit {
+    background-color: rgb(49, 23, 145);
+    margin-bottom: 15px;
+}
+
+#delete {
+    background-color: rgb(204, 6, 6);
+}
+
+#show_delete {
+    background-color: rgb(204, 6, 6);
+    margin-bottom: 15px;
+}
+
+#show_chords_image {
+    max-width: 200px;
+    max-height: 200px;
+    size: auto;
+}
+
+#form_add,
+#form_edit,
+#chord_txt {
+    background-color: rgba(255, 255, 255, 0.849);
+    border-radius: 7px;
+    color: rgb(0, 0, 0);
+}
+
+.show_crd {
+    background-color: rgba(255, 255, 255, 0.849);
+    color: rgb(0, 0, 0);
+}
+
+/***** MEDIA QUERIES *****/
 @media only screen and (max-width: 800px) {
     #diagram {
         width: 355px;
@@ -25,5 +87,9 @@ body {
 
     #chart-title {
         font-size: 35px;
+    }
+
+    #chord_txt {
+        font-size: 10px;
     }
 } 

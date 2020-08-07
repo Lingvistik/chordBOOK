@@ -15,47 +15,47 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def route():
-    return redirect(url_for('get_chords'))
+    return redirect(url_for('songs'))
 
-@app.route('/get_chords')
-def get_chords():
+@app.route('/songs')
+def songs():
     return render_template('chordbook.html', chords=mongo.db.chords.find())
 
-@app.route('/show_chords/<chord_id>')
-def show_chords(chord_id):
-    the_chord = mongo.db.chords.find_one({"_id": ObjectId(chord_id)})
+@app.route('/song/<song_id>')
+def show_chords(song_id):
+    the_chord = mongo.db.chords.find_one({"_id": ObjectId(song_id)})
     return render_template('showchords.html', chords=the_chord)
+      
 
-@app.route('/add_chords')
+@app.route('/add_chords', methods=['GET','POST'])
 def add_chords():
-    return render_template('addchords.html', genre=mongo.db.genre.find())
+    if request.method == 'POST':
+        chords = mongo.db.chords
+        chords.insert_one(request.form.to_dict())
+        return redirect(url_for('songs'))
+    else:
+        return render_template('addchords.html')
 
-@app.route('/insert_chords', methods=['POST'])
-def insert_chords():
-    chords = mongo.db.chords
-    chords.insert_one(request.form.to_dict())
-    return redirect(url_for('get_chords')) 
+@app.route('/edit_chords/<song_id>', methods=['GET','POST'])
+def edit_chords(song_id):
+    if request.method == 'POST':
+        chords = mongo.db.chords
+        chords.update({'_id': ObjectId(song_id)},
+        {
+            'band_name':request.form.get('band_name'),
+            'song_name':request.form.get('song_name'),
+            'chords_text': request.form.get('chords_text'),
+            'image': request.form.get('image')
+        })
+        return redirect(url_for('songs'))
+    else:
+        the_chord = mongo.db.chords.find_one({"_id": ObjectId(song_id)})
+        return render_template('editchords.html', chords=the_chord)
 
-@app.route('/edit_chords/<chord_id>')
-def edit_chords(chord_id):
-    the_chord = mongo.db.chords.find_one({"_id": ObjectId(chord_id)})
-    return render_template('editchords.html', chords=the_chord,)
-
-@app.route('/update_chords/<chord_id>', methods=['POST'])
-def update_chords(chord_id):
-    chords = mongo.db.chords
-    chords.update({'_id': ObjectId(chord_id)},
-    {
-        'band_name':request.form.get('band_name'),
-        'song_name':request.form.get('song_name'),
-        'chords_text': request.form.get('chords_text'),
-    })
-    return redirect(url_for('get_chords'))
-
-@app.route('/delete_chords/<chord_id>')
-def delete_chords(chord_id):
-    mongo.db.chords.remove({'_id': ObjectId(chord_id)})
-    return redirect(url_for('get_chords'))
+@app.route('/delete_chords/<song_id>')
+def delete_chords(song_id):
+    mongo.db.chords.remove({'_id': ObjectId(song_id)})
+    return redirect(url_for('songs'))
 
 @app.route('/chords_diagram')
 def chords_diagram():
