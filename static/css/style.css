@@ -79,6 +79,11 @@ h4 {
     color: rgb(0, 0, 0);
 }
 
+#mobile-demo {
+    background-color: rgba(255, 255, 255, 0.932);
+    color: black;
+}
+
 /***** MEDIA QUERIES *****/
 @media only screen and (max-width: 800px) {
     #diagram {
