@@ -1,7 +1,12 @@
-{% extends 'base.html'%}
-{% block content %}
+{% extends 'base.html'%} {% block content %}
 
 <h2 >Edit Your Song!</h2>
+
+{% if error %}
+
+<div id="errormsg" class="row">Remember? You must provide all of these - Artist Name, Song Name or Chords!</div>
+
+{% endif %}
 
 <div id="form_edit" class="container">
     <div class="row">
