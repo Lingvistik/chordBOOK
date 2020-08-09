@@ -21,11 +21,7 @@ h5 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 300px;
-}
-
-.btn {
-    font-family: 'Roboto', sans-serif;
+    width: 330px;
 }
 
 .title {
@@ -43,6 +39,7 @@ h5 {
     border-radius: 50% !important;
 }
 
+/***** Buttons *****/
 #edit {
     background-color: rgb(49, 23, 145);
 }
@@ -61,23 +58,14 @@ h5 {
     margin-bottom: 15px;
 }
 
+.btn {
+    font-family: 'Roboto', sans-serif;
+}
+
 #show_chords_image {
     max-width: 200px;
     max-height: 200px;
     size: auto;
-}
-
-#form_add,
-#form_edit,
-#chord_txt {
-    background-color: rgba(255, 255, 255, 0.849);
-    border-radius: 7px;
-    color: rgb(0, 0, 0);
-}
-
-.show_crd {
-    background-color: rgba(255, 255, 255, 0.849);
-    color: rgb(0, 0, 0);
 }
 
 #mobile-demo {
